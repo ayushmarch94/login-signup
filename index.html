@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login signup</title>
+    <link rel="icon" href="./check.png">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="signup">
+        <div class="signup-form">
+            <div class="heading">
+                <h1>Sign up</h1>
+            </div>
+            <form action="">
+                <label>Username</label>
+                <input required placeholder=" Enter Username">
+                <label>Password</label>
+                <input required placeholder=" Enter Password">
+                <div class="buttons">
+                    <button onclick="land()" type="submit">Sign up</button>
+                    <button id="go-to-login" onclick="loginPage()" type="reset">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        function loginPage(){
+            window.location.href = './login.html';
+        }
+        function land(){
+            window.location.href = './land.html';
+        }
+    </script>
+</body>
+</html>
