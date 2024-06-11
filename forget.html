@@ -17,13 +17,17 @@
                 <label>Enter OTP</label>
                 <input required placeholder="Enter OTP">
                 <div class="buttons">
-                    <button type="submit" type="reset">Reset Password</button>
+                    <button onsubmit="land()" type="submit" type="reset">Reset Password</button>
                 </div>
             </form>
         </div>
     </div>
     <script>
-        window.alert("Your OTP is sent your Email address press ok and enter OTP")
+        function land(){
+            window.location.href = './land.html';
+        }
+        let x = Math.random() * 10;
+        
     </script>
 </body>
 </html>
