@@ -20,10 +20,10 @@ document.getElementById("signup-form").addEventListener("submit", function (even
 
 
 
-function generateOTP(length) {
+function generateOTP() {
   let otp = '';
   const characters = '0123456789';
-  for (let i = 0; i < length; i++) {
+  for (let i = 0; i < 6; i++) {
       const randomIndex = Math.floor(Math.random() * characters.length);
       otp += characters[randomIndex];
   }
@@ -31,6 +31,6 @@ function generateOTP(length) {
   return otp;
 }
 
-generateOTP(6)
+generateOTP()
 
 
