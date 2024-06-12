@@ -13,15 +13,36 @@
             <div class="heading">
                 <h1>Reset Password</h1>
             </div>
-            <form action="">
+            <form id="signup-form" action="">
                 <input required placeholder="Enter OTP">
-                <p>OTP is sent your email</p>
-                <p>60s</p>
-                <button type="submit">Reset Password</button>
+                <input required placeholder="Enter new password">
+                <p>OTP is sent to your email</p>
+                <p id="countdown">60s</p>
+                <button type="submit">Ok</button>
             </form>
         </div>
     </div>
     <script>
+        function countdown() {
+            let timeLeft = 60;
+            const countdown = document.getElementById('countdown');
+            const timer = setInterval(() => {
+                timeLeft--;
+                countdown.textContent = timeLeft + 's';
+
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    countdown.textContent = 'Please reload your page';
+                    
+                }
+            }, 1000);
+        }
+        countdown();
+
+        document.getElementById('signup-form').addEventListener('submit', function(event) {
+        event.preventDefault(); 
+        window.location.href = "./land.html";
+      });
     </script>
 </body>
 </html>
