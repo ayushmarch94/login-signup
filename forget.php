@@ -16,31 +16,35 @@
                 <h1>Get your Password</h1>
             </div>
             <form id="signup-form" action="forget.php" method="POST">
+                <p id="notice">Your password will be sent to the email</p>
                 <input type="email" required name="EMAIL" placeholder="Enter Email">
-                <button type="submit">Get password on Email</button>
+                <button id="resetPassword" type="submit">Get password on Email</button>
             </form>
         </div>
     </div>
+    <style>
+        #notice{
+            color: green;
+        }
+    </style>
 </body>
 
 </html>
 
 <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        include 'db.php';
-        $email = $_POST['EMAIL'];
-        $sql = "SELECT PASSWORD FROM data WHERE EMAIL = '$email'";
-        $result = mysqli_query($con, $sql);
-        $row = mysqli_fetch_assoc($result);
-        echo "Password " . $row["PASSWORD"];   
-        mysqli_close($con);
-    }
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    include 'db.php';
+    $email = $_POST['EMAIL'];
+    $sql = "SELECT PASSWORD FROM data WHERE EMAIL = '$email'";
+    $result = mysqli_query($con, $sql);
+    $row = mysqli_fetch_assoc($result);
+    echo "Password " . $row["PASSWORD"];
+    mysqli_close($con);
+    $subject="Requested email";
+    $message = "This is your requested password ".$row["PASSWORD"];
+    $from = "From:ayushkumar.ajstyles@gmail.com";
+    mail($email,$subject,$message,$from);
+    header("Location: ./login.php");
+}
+
 ?>
-
-
-
-
-
-
-
-
