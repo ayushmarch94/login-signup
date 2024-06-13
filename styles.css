@@ -6,7 +6,7 @@
 }
 
 .signup{
-    height: 600px;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,18 +35,13 @@ form{
     align-items: center;
 }
 
-label{
-    font-size: 30px;
-    margin: 10px;
-    color: white;
-}
-
 input{
     border: 1px solid black;
     height: 30px;
     width: 90%;
     border-radius: 5px;
     margin: 10px;
+    padding: 10px;
 }
 
 button{
@@ -69,7 +64,7 @@ a{
 }
 
 .welcome{
-    height: 600px;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;

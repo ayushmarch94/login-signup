@@ -13,7 +13,7 @@
             <div class="heading">
                 <h1>Reset Password</h1>
             </div>
-            <form id="signup-form" action="">
+            <form id="signup-form" action="/forget">
                 <input required placeholder="Enter OTP">
                 <input required placeholder="Enter new password">
                 <p>OTP is sent to your email</p>
