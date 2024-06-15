@@ -41,11 +41,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   include 'db.php';
 
   $EMAIL = $_POST["EMAIL"];
+  $EMAIL=strtolower($EMAIL); 
   $PASSWORD = $_POST["PASSWORD"];
-  $stmt = $con->prepare("SELECT * FROM `data` WHERE `EMAIL` = ?");
-  $stmt->bind_param("s", $EMAIL);
-  $stmt->execute();
-  $result = $stmt->get_result();
+  $hash = password_hash($PASSWORD,PASSWORD_DEFAULT);
+
+  $sql = "SELECT * FROM data WHERE EMAIL = '$EMAIL'";
+  $result = mysqli_query($con, $sql);
 
   if ($result->num_rows > 0) {
     echo "<script>
@@ -54,19 +55,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </script>";
 
   } else {
-    $stmt = $con->prepare("INSERT INTO `data`(`EMAIL`, `PASSWORD`) VALUES (?, ?)");
-    $stmt->bind_param("ss", $EMAIL, $PASSWORD);
+    $insertData = "INSERT INTO data VALUES ('$EMAIL','$hash')";
+    $resultEnter = mysqli_query($con, $insertData);
 
-    if ($stmt->execute()) {
+    if ($resultEnter) {
       header("Location: ./land.php");
       exit();
     } else {
-      echo "Error: " . $stmt->error;
+      echo "Error: ";
     }
   }
-
-  $stmt->close();
-  $con->close();
 }
 
 ?>

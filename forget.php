@@ -34,16 +34,20 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include 'db.php';
+
     $email = $_POST['EMAIL'];
+    $EMAIL=strtolower($EMAIL);
     $sql = "SELECT PASSWORD FROM data WHERE EMAIL = '$email'";
+
     $result = mysqli_query($con, $sql);
     $row = mysqli_fetch_assoc($result);
-    echo "Password " . $row["PASSWORD"];
     mysqli_close($con);
+
     $subject="Requested email";
     $message = "This is your requested password ".$row["PASSWORD"];
     $from = "From:ayushkumar.ajstyles@gmail.com";
     mail($email,$subject,$message,$from);
+    
     header("Location: ./login.php");
 }
 
