@@ -1,6 +1,0 @@
-add session
-
-
- add time in session
-
- add resend password

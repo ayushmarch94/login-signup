@@ -22,6 +22,7 @@
         <p id="tokenP">OTP did not matched</p>
         <p id="passP">Passwords did not matched</p>
         <button type="submit">Login</button>
+        <button onclick="resend()" type="button">Resend OTP</button>
       </form>
     </div>
   </div>
@@ -30,6 +31,12 @@
         display: none;
     }
   </style>
+  <script>
+    function resend() {
+        window.location.href = './forget.php';
+    }
+
+  </script>
 </body>
 
 </html>
@@ -71,3 +78,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 }
 ?>
+
