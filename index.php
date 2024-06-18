@@ -18,6 +18,7 @@
       <form id="signup-form" action="index.php" method="POST">
         <input name="EMAIL" type="email" required placeholder="Enter Email" />
         <input name="PASSWORD" type="password" required placeholder="Enter Password" />
+        <p>The email is already registered, Try login</p>
         <button type="submit">Sign up</button>
         <button id="go-to-login" type="button" onclick="loginPage()">
           Login
@@ -25,6 +26,11 @@
       </form>
     </div>
   </div>
+  <style>
+    p{
+      display: none;
+    }
+  </style>
   <script>
     function loginPage() {
       window.location.href = "./login.php";
@@ -50,11 +56,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if ($result->num_rows > 0) {
     echo "<script>
-    alert('The email is already registered, Try login.'); 
-    window.location.href = 'index.php';
+     document.querySelector('p').style.display = 'block';
     </script>";
 
   } else {
+
     $insertData = "INSERT INTO data VALUES ('$EMAIL','$hash')";
     $resultEnter = mysqli_query($con, $insertData);
 

@@ -13,42 +13,54 @@
     <div class="signup">
         <div class="signup-form">
             <div class="heading">
-                <h1>Get your Password</h1>
+                <h1>Forget password</h1>
             </div>
             <form id="signup-form" action="forget.php" method="POST">
-                <p id="notice">Your password will be sent to the email</p>
                 <input type="email" required name="EMAIL" placeholder="Enter Email">
-                <button id="resetPassword" type="submit">Get password on Email</button>
+                <p>This email is not registered try signup</p>
+                <button id="resetPassword" type="submit">Get OTP on email</button>
             </form>
         </div>
     </div>
     <style>
-        #notice{
-            color: green;
+        p{
+            display: none;
         }
     </style>
 </body>
-
 </html>
 
 <?php
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include 'db.php';
-
-    $email = $_POST['EMAIL'];
-    $EMAIL=strtolower($EMAIL);
-    $sql = "SELECT PASSWORD FROM data WHERE EMAIL = '$email'";
-
+    session_start();
+    $EMAIL = $_POST["EMAIL"]; 
+    $_SESSION['email'] = $EMAIL;
+    $sql = "SELECT EMAIL FROM data WHERE EMAIL = '$EMAIL'";
     $result = mysqli_query($con, $sql);
     $row = mysqli_fetch_assoc($result);
-    mysqli_close($con);
 
-    $subject="Requested email";
-    $message = "This is your requested password ".$row["PASSWORD"];
-    $from = "From:ayushkumar.ajstyles@gmail.com";
-    mail($email,$subject,$message,$from);
+    if (mysqli_num_rows($result) > 0){
+        $token = rand();
+        $_SESSION['token'] = $token;
+        $emailData= $row['EMAIL'];
+        
+        $subject="OTP for reset password";
+        $message .= "This is your OTP for reset password ".$token;
+        $from = "From:ayushkumar.ajstyles@gmail.com";
+        mail($emailData,$subject,$message,$from);
     
-    header("Location: ./login.php");
-}
+        header("Location: ./token.php");
+    } 
 
+    else {
+        echo "<script>
+            document.querySelector('p').style.display = 'block';
+        </script>";
+    }
+    
+}
 ?>
+
+
