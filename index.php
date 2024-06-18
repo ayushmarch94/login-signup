@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $EMAIL = $_POST["EMAIL"];
   $EMAIL=strtolower($EMAIL); 
   $PASSWORD = $_POST["PASSWORD"];
-  $hash = password_hash($PASSWORD,PASSWORD_DEFAULT);
+  $hash = password_hash($PASSWORD,PASSWORD_BCRYPT);
 
   $sql = "SELECT * FROM data WHERE EMAIL = '$EMAIL'";
   $result = mysqli_query($con, $sql);

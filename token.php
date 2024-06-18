@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       if($PASSWORD==$ConfirmPassword){
 
         include 'db.php';
-        $hash = password_hash($PASSWORD,PASSWORD_DEFAULT);
+        $hash = password_hash($PASSWORD,PASSWORD_BCRYPT);
         $sql = "UPDATE data SET PASSWORD = '$hash' WHERE EMAIL='$sessionEmail'";
         $resultEnter = mysqli_query($con, $sql);
         header("Location: ./land.php");
