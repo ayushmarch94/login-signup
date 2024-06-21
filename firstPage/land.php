@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
-    <link rel="icon" href="./check.png">
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="icon" href="./../image/heart.png">  
+    <link rel="stylesheet" href="land.css">
 </head>
 <body>
-    <div class="welcome">
+    <div class="container">
         <p>Welcome</p>
     </div>
+    <script>
+    </script>
 </body>
 </html>

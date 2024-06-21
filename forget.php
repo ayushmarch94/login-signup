@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reset password</title>
-    <link rel="icon" href="./check.png">
+    <link rel="icon" href="./image/heart.png">
     <link rel="stylesheet" href="./styles.css">
 </head>
 
@@ -19,6 +19,7 @@
                 <input type="email" required name="EMAIL" placeholder="Enter Email">
                 <p>This email is not registered try signup</p>
                 <button id="resetPassword" type="submit">Get OTP on email</button>
+                <button type="button" onclick="back()"><- Back</button>
             </form>
         </div>
     </div>
@@ -27,6 +28,11 @@
             display: none;
         }
     </style>
+    <script>
+            function back() {
+                window.location.href = "./login.php";
+            }
+    </script>
 </body>
 </html>
 

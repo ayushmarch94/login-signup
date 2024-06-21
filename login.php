@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login</title>
-  <link rel="icon" href="./check.png" />
+  <link rel="icon" href="./image/heart.png">
   <link rel="stylesheet" href="./styles.css" />
 </head>
 
@@ -21,7 +21,7 @@
         <p id="noticeE">Wrong email</p> 
         <p id="noticeP">Wrong password</p> 
         <button type="submit">Login</button>
-        <button onclick="signUp()">Signup</button>
+        <button type="reset" onclick="signUp()">Signup</button>
         <a onclick="forget()">
           <p>Forget Password</p>
         </a>
@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   else{
     $verify = password_verify($PASSWORD, $passwordRow['PASSWORD']);
     if ($verify == TRUE) {
-        header("Location: ./land.php");
+        header("Location: ./firstPage/land.php");
         exit();
     } else {
       echo "<script>

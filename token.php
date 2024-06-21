@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login</title>
-  <link rel="icon" href="./check.png" />
+  <link rel="icon" href="./image/heart.png">
   <link rel="stylesheet" href="./styles.css" />
 </head>
 
@@ -23,6 +23,7 @@
         <p id="passP">Passwords did not matched</p>
         <button type="submit">Login</button>
         <button onclick="resend()" type="button">Resend OTP</button>
+        <button onclick="back()" type="button">Back</button>
       </form>
     </div>
   </div>
@@ -33,6 +34,9 @@
   </style>
   <script>
     function resend() {
+        window.location.href = './forget.php';
+    }
+    function back() {
         window.location.href = './forget.php';
     }
 
@@ -60,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hash = password_hash($PASSWORD,PASSWORD_BCRYPT);
         $sql = "UPDATE data SET PASSWORD = '$hash' WHERE EMAIL='$sessionEmail'";
         $resultEnter = mysqli_query($con, $sql);
-        header("Location: ./land.php");
+        header("Location: ./firstPage/land.php");
       }
       else{
         echo "<script>
