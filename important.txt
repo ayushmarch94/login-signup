@@ -1,2 +1,0 @@
-add token expiry
-add maximum and minimum length to input

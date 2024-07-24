@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reset password</title>
-    <link rel="icon" href="./image/heart.png">
+    <link rel="icon" href="./image/passwords.png">
     <link rel="stylesheet" href="./styles.css">
 </head>
 
