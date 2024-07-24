@@ -17,15 +17,20 @@
             </div>
             <form id="signup-form" action="forget.php" method="POST">
                 <input type="email" required name="EMAIL" placeholder="Enter Email">
-                <p>This email is not registered try signup</p>
+                <p id="notFound">This email is not registered try signup</p>
+                <p id="mail">Using free version so mail() will not work, mail() will work in local system </p>
                 <button id="resetPassword" type="submit">Get OTP on email</button>
                 <button type="button" onclick="back()"><- Back</button>
             </form>
         </div>
     </div>
     <style>
-        p{
+        #notFound{
             display: none;
+        }
+
+        #mail{
+            text-align: center;
         }
     </style>
     <script>
